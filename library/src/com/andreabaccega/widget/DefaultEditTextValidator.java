@@ -125,6 +125,8 @@ public class DefaultEditTextValidator
 	@Override
 	public void resetValidators( Context context )
 	{
+		if(getEditText() == null || getEditText().isInEditMode())
+			return;
 		// its possible the context may have changed so re-get the defaultEmptyErrorString
 		defaultEmptyErrorString = context.getString( R.string.error_field_must_not_be_empty );
 		setEmptyErrorString( emptyErrorString );
